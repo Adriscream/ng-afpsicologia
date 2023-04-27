@@ -1,4 +1,5 @@
 import { LayoutModule } from '@angular/cdk/layout';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -11,6 +12,7 @@ import { DashboardComponent } from './dashboard.component';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+    CommonModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
@@ -20,4 +22,4 @@ import { DashboardComponent } from './dashboard.component';
   ],
   exports: [DashboardComponent],
 })
-export class AppModule {}
+export class DashboardModule {}

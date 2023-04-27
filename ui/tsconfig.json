@@ -21,10 +21,10 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@app/*": ["./src/app/*"],
       "@components/*": ["./src/app/components/*"],
       "@pages/*": ["./src/app/pages/*"],
-      "@common/*": ["./src/app/common/public-api.ts"]
+      "@common/*": ["./src/app/common/public-api.ts"],
+      "@app/*": ["./src/app/*"]
     }
   },
   "angularCompilerOptions": {
