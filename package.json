@@ -1,0 +1,19 @@
+{
+  "name": "ng-afpsicologia",
+  "version": "0.0.0",
+  "scripts": {
+    "install": "pnpm recursive run install",
+    "build": "pnpm recursive run bulid",
+    "test": "pnpm recursive run test",
+    "lint": "pnpm recursive run lint:fix ",
+    "prettier": "pnpm recursive run prettier",
+    "ui": "pnpm -F ui start",
+    "api": "pnpm -F api start"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "~4.9.4",
+    "prettier": "^2.8.8"
+  }
+}
