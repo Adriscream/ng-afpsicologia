@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { User } from '@lib/interfaces';
 import { BehaviorSubject, mergeMap, tap } from 'rxjs';
 
-import { User } from './user.entity';
 import { UserApiService } from './user-api.service';
 
 @Injectable()

@@ -25,7 +25,9 @@
   },
   "dependencies": {
     "@google-cloud/firestore": "^6.5.0",
+    "@lib/interfaces": "workspace:^",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "firebase": "^9.21.0",

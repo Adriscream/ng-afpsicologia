@@ -2,3 +2,5 @@ packages:
   - '.'
   - 'ui'
   - 'api'
+  - 'lib'
+  - 'lib/packages/*'

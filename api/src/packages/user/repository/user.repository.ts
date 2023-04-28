@@ -1,11 +1,13 @@
+import { FirestoreService } from '@api/firestore/firestore.service';
+import { User } from '@lib/interfaces';
 import { Injectable } from '@nestjs/common';
-import { User } from '../interfaces/user.entity';
-import { db } from '../../firestore/firestore.config';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 @Injectable()
 export class UserRepository {
-  private readonly collection = collection(db, 'users');
+  constructor(private firestore: FirestoreService) {}
+
+  private readonly collection = collection(this.firestore.db, 'users');
 
   async findAll(): Promise<User[]> {
     const usersSnapshot = await getDocs(this.collection);
@@ -22,7 +24,7 @@ export class UserRepository {
     return users;
   }
 
-  async findById(id: string): Promise<User | null> {
+  async findById(_id: string): Promise<User | null> {
     // const { exists, data } = await this.collection.doc(id).get();
     // if (!exists) {
     //   return null;
@@ -36,7 +38,7 @@ export class UserRepository {
     return { id: docRef.id } as User;
   }
 
-  async update(id: string, data: Partial<User>): Promise<User | null> {
+  async update(_id: string, _data: Partial<User>): Promise<User | null> {
     // const docRef = this.collection.doc(id);
     // const docSnapshot = await docRef.get();
     // if (!docSnapshot.exists) {
@@ -48,7 +50,7 @@ export class UserRepository {
     return null;
   }
 
-  async delete(id: string): Promise<boolean> {
+  async delete(_id: string): Promise<boolean> {
     // const docRef = this.collection.doc(id);
     // const docSnapshot = await docRef.get();
     // if (!docSnapshot.exists) {

@@ -1,5 +1,10 @@
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-@NgModule({ imports: [HttpClientModule, HttpClientJsonpModule] })
+import { APIInterceptorProvider } from './interceptor/api.interceptor';
+
+@NgModule({
+  imports: [HttpClientModule, HttpClientJsonpModule],
+  providers: [APIInterceptorProvider],
+})
 export class AfHttpModule {}

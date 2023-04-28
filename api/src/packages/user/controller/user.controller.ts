@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { UserService } from '../service/user.service';
-import { User } from '../interfaces/user.entity';
+import { User } from '@lib/interfaces';
 
 @Controller('user')
 export class UserController {

@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "settings": {"import/resolver": {"typescript": true, "node": true}},
+  "rules": {
+    "import/order": 2,
+    "import/newline-after-import": 2,
+    "import/no-named-as-default-member": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ]
+  }
+}
