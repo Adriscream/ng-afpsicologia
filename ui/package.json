@@ -4,14 +4,17 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:pro": "ng serve --configuration production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "stylelint": "stylelint \"src/**/*.scss\"",
-    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "prettier": "prettier --write ."
+    "lint": "pnpm tsc && pnpm eslint:fix && pnpm stylelint:fix && pnpm prettier",
+    "eslint": "eslint \"**/*.{ts,html,js}\"",
+    "eslint:fix": "eslint --fix --max-warnings=0 \"**/*.{ts,html,js}\"",
+    "stylelint": "stylelint --max-warnings=0 \"**/*.{css,scss}\"",
+    "stylelint:fix": "stylelint --max-warnings=0 --fix \"**/*.{css,scss}\"",
+    "prettier": "prettier --write . --loglevel warn",
+    "tsc": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "private": true,
   "dependencies": {

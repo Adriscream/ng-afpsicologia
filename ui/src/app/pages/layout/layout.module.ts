@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { UserModule } from '@app/common/user/user.module';
 
 import { LayoutComponent } from './layout.component';
 
@@ -23,6 +24,7 @@ import { LayoutComponent } from './layout.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    UserModule,
   ],
   exports: [LayoutComponent],
 })

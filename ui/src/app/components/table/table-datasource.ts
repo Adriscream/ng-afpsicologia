@@ -57,13 +57,19 @@ export class TableDataSource extends DataSource<TableItem> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange).pipe(
+      return merge(
+        observableOf(this.data),
+        this.paginator.page,
+        this.sort.sortChange
+      ).pipe(
         map(() => {
           return this.getPagedData(this.getSortedData([...this.data]));
         })
       );
     } else {
-      throw Error('Please set the paginator and sort on the data source before connecting.');
+      throw Error(
+        'Please set the paginator and sort on the data source before connecting.'
+      );
     }
   }
 
@@ -112,6 +118,10 @@ export class TableDataSource extends DataSource<TableItem> {
 }
 
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
-function compare(a: string | number, b: string | number, isAsc: boolean): number {
+function compare(
+  a: string | number,
+  b: string | number,
+  isAsc: boolean
+): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
