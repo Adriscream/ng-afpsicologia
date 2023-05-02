@@ -1,8 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '@app/common/user/user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '@app/common/auth/auth.service';
+import { UserFacade } from '@app/common/store/user/public-api';
+import { ClientFacade } from '@pages/client/store/client.facade';
 import { Observable } from 'rxjs';
-import { filter, map, mergeMap, shareReplay, take } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'af-layout',
@@ -19,24 +22,23 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public userService: UserService
+    public userFacade: UserFacade,
+    public authService: AuthService,
+    private clientFacade: ClientFacade,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.userService
-      .getUsers()
-      .pipe(
-        take(1),
-        filter((users) => !users.length),
-        mergeMap(() =>
-          this.userService.create({
-            name: 'Angela',
-            email: 'afpsi@gmail.com',
-            createdAt: new Date(),
-            updatedAt: new Date(),
-          })
-        )
-      )
-      .subscribe();
+    this.getClients();
+  }
+
+  getClients() {
+    return this.clientFacade.getClients();
+  }
+
+  signOut() {
+    this.authService.singOut().subscribe(() => {
+      this.router.navigate(['/landing']);
+    });
   }
 }

@@ -1,16 +1,15 @@
-import { FirestoreService } from '@api/firestore/firestore.service';
+import { FirebaseService } from 'src/common/firebase/public-api';
 import { User } from '@lib/interfaces';
 import { Injectable } from '@nestjs/common';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 @Injectable()
 export class UserRepository {
-  constructor(private firestore: FirestoreService) {}
+  constructor(private firestore: FirebaseService) {}
 
-  private readonly collection = collection(this.firestore.db, 'users');
+  private readonly collection = this.firestore.db.collection('users');
 
   async findAll(): Promise<User[]> {
-    const usersSnapshot = await getDocs(this.collection);
+    const usersSnapshot = await this.collection.get();
     const users: User[] = [];
 
     usersSnapshot.forEach((doc) => {
@@ -34,8 +33,9 @@ export class UserRepository {
   }
 
   async create(data: User): Promise<User> {
-    const docRef = await addDoc(this.collection, data);
-    return { id: docRef.id } as User;
+    const id = crypto.randomUUID();
+    await this.collection.doc(id).set(data);
+    return { ...data, id } as User;
   }
 
   async update(_id: string, _data: Partial<User>): Promise<User | null> {

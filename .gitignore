@@ -58,3 +58,8 @@ Thumbs.db
 .env
 .env.json
 .env-*.json
+
+environment.ts
+environment.development.ts
+
+serviceAccountKey.json

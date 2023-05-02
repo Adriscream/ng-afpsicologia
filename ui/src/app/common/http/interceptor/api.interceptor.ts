@@ -14,7 +14,7 @@ export class APIInterceptor implements HttpInterceptor {
     }
 
     const reqWithApi = req.clone({
-      url: `/api${req.url}`,
+      url: `/api/v1${req.url}`,
     });
     return next.handle(reqWithApi);
   }

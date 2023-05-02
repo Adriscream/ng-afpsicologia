@@ -4,13 +4,15 @@ import { User } from '@lib/interfaces';
 
 @Injectable()
 export class UserApiService {
+  controllerName = 'user';
+
   constructor(private http: HttpClient) {}
 
   getUsers() {
-    return this.http.get<User[]>('/user');
+    return this.http.get<User[]>(`/${this.controllerName}`);
   }
 
   create(user: User) {
-    return this.http.post<User>('/user', user);
+    return this.http.post<User>(`/${this.controllerName}`, user);
   }
 }

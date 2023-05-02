@@ -1,7 +1,10 @@
 export interface User {
   id?: string;
-  name: string;
+  firstName: string;
+  idNumber?: string;
+  phoneNumber?: string;
   email: string;
+  photoURL?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }

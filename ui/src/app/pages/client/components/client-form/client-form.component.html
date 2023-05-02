@@ -1,0 +1,135 @@
+<h2>Clients Information</h2>
+
+<form [formGroup]="clientForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="client-card">
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Alias" formControlName="alias" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="First name"
+              formControlName="firstName"
+            />
+            <mat-error
+              *ngIf="clientForm.controls['firstName'].hasError('required')"
+            >
+              First name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Last name"
+              formControlName="lastName"
+            />
+            <mat-error
+              *ngIf="clientForm.controls['lastName'].hasError('required')"
+            >
+              Last name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="ID Number"
+              formControlName="idNumber"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Phone Number"
+              formControlName="phoneNumber"
+            />
+            <mat-error
+              *ngIf="clientForm.controls['phoneNumber'].hasError('required')"
+            >
+              Phone number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Date of Birth"
+              formControlName="dateOfBirth"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error
+              *ngIf="clientForm.controls['email'].hasError('required')"
+            >
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="clientForm.controls['email'].hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              #postalCode
+              maxlength="5"
+              placeholder="Postal Code"
+              type="number"
+              formControlName="postalCode"
+            />
+            <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+          </mat-form-field>
+        </div>
+      </div></mat-card-content
+    >
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="submit-button"
+      >
+        {{ buttonText }}
+      </button>
+      <button
+        *ngIf="client"
+        mat-raised-button
+        color="primary"
+        type="button"
+        class="submit-button"
+        (click)="cancelEdit()"
+      >
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

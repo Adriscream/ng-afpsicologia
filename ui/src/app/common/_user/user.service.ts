@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '@lib/interfaces';
-import { BehaviorSubject, mergeMap, tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 
 import { UserApiService } from './user-api.service';
 
@@ -17,6 +17,6 @@ export class UserService {
   }
 
   create(user: User) {
-    return this.userApiService.create(user).pipe(mergeMap(this.getUsers));
+    return this.userApiService.create(user);
   }
 }

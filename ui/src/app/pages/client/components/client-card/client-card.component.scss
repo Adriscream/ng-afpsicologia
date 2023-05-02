@@ -1,0 +1,17 @@
+.header-buttons {
+  width: 100%;
+  text-align-last: end;
+  align-self: center;
+
+  .mdc-button {
+    min-width: fit-content;
+  }
+}
+
+.content {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 0.5rem 2rem;
+  font-size: small;
+  grid-template-columns: repeat(auto-fill, minmax(160px, max-content));
+}

@@ -16,9 +16,6 @@
   z-index: 1;
 }
 
-
-
-
 .toolbar-lg {
   display: grid;
   flex: 1;
@@ -33,9 +30,29 @@
   align-items: center;
 }
 
+.account-image {
+  border-radius: 50%;
+}
+
 .account-icon {
   margin-left: 8px;
   font-size: 30px;
   height: auto;
   width: auto;
+}
+
+.sign-out {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  transition: all 0.5s ease-in-out;
+
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+
+  &:hover {
+    animation-name: rubberBand;
+  }
+}
+.sign-out:hover {
+  background-color: #3f51b5;
 }

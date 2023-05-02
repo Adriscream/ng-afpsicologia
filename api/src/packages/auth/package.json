@@ -1,0 +1,18 @@
+{
+  "name": "@api/auth",
+  "version": "0.0.0",
+  "main": "src/public-api.ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "commonjs",
+  "dependencies": {
+    "@api/common": "workspace:0.0.0",
+    "@api/capforce": "workspace:0.0.0",
+    "@api/users": "workspace:0.0.0",
+    "@lib/interfaces": "workspace:0.0.0",
+    "@nestjs/common": "9.3.9",
+    "@nestjs/core": "9.3.9",
+    "@nestjs/swagger": "6.2.1",
+    "@okta/jwt-verifier": "3.0.1"
+  }
+}

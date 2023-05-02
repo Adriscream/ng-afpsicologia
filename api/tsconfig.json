@@ -24,7 +24,12 @@
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "paths": {
+      "@common/auth": ["./src/common/auth/public-api"],
+      "@common/error": ["./src/common/error/public-api"],
+      "@common/firebase": ["src/common/firebase/public-api"],
+      "@common/logger": ["./src/common/logger/public-api"],
       "@firestore/*": ["./src/firestore/*"],
       "@api/*": ["./src/packages/*"]
     }
