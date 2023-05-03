@@ -14,7 +14,7 @@
     "start:prod": "node dist/main",
     "lint": "pnpm tsc && pnpm eslint:fix && pnpm prettier",
     "eslint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "eslint:fix": "eslint --max-warnings=0 --fix \"{src,apps,libs,test}/**/*.ts\"",
+    "eslint:fix": "eslint --fix \"{src,apps,libs,test}/**/*.ts\"",
     "prettier": "prettier --write . --loglevel warn",
     "tsc": "tsc --project tsconfig.json --pretty --noEmit",
     "test": "jest",

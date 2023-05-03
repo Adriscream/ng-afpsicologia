@@ -17,17 +17,17 @@
 }
 
 .toolbar-lg {
+  align-items: center;
   display: grid;
   flex: 1;
   grid-auto-flow: column;
   justify-content: space-between;
-  align-items: center;
 }
 
 .account {
+  align-items: center;
   display: grid;
   grid-auto-flow: column;
-  align-items: center;
 }
 
 .account-image {
@@ -35,24 +35,21 @@
 }
 
 .account-icon {
-  margin-left: 8px;
   font-size: 30px;
   height: auto;
+  margin-left: 8px;
   width: auto;
 }
 
 .sign-out {
-  margin-left: 1rem;
-  font-size: 1.25rem;
-  transition: all 0.5s ease-in-out;
-
   animation-duration: 0.5s;
   animation-fill-mode: both;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
     animation-name: rubberBand;
+    background-color: #3f51b5;
   }
-}
-.sign-out:hover {
-  background-color: #3f51b5;
 }

@@ -8,18 +8,29 @@
     [opened]="(isHandset$ | async) === false"
   >
     <mat-toolbar>
-      <p>Menu</p>
+      <p i18n="@@side-nav-menu">Menu</p>
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item tabindex="0" routerLink="./home">Home</a>
-      <a mat-list-item tabindex="0" routerLink="./dashboard">Dashboard</a>
-      <a mat-list-item tabindex="0" routerLink="./table">Table</a>
-      <a mat-list-item tabindex="0" routerLink="./tree">Tree</a>
-      <a mat-list-item tabindex="0" routerLink="./drag-drop">Drag-Drop</a>
-      <a mat-list-item tabindex="0" routerLink="./calendar">Calendar</a>
-      <a mat-list-item tabindex="0" routerLink="./client">Client</a>
+      <a mat-list-item tabindex="0" routerLink="./home" i18n="@@home">Home</a>
+      <a mat-list-item tabindex="0" routerLink="./dashboard" i18n="@@dashboard"
+        >Dashboard</a
+      >
+      <a mat-list-item tabindex="0" routerLink="./table" i18n="@@table"
+        >Table</a
+      >
+      <a mat-list-item tabindex="0" routerLink="./tree" i18n="@@tree">Tree</a>
+      <a mat-list-item tabindex="0" routerLink="./drag-drop" i18n="@@drag"
+        >Drag-Drop</a
+      >
+      <a mat-list-item tabindex="0" routerLink="./calendar" i18n="@@calendar"
+        >Calendar</a
+      >
+      <a mat-list-item tabindex="0" routerLink="./client" i18n="@@client"
+        >Client</a
+      >
 
       <button
+        i18n="@@sign-out"
         class="sign-out animate__animated"
         type="button"
         aria-label="Sign out"
@@ -43,7 +54,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="toolbar-lg">
-        <span>AF-Psicologia</span>
+        <span i18n="@@title">AF Scheduler</span>
         <div class="account">
           <b>{{ (userFacade.user$ | async)?.firstName }}</b>
           <button

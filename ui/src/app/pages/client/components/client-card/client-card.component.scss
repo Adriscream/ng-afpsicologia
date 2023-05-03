@@ -1,7 +1,7 @@
 .header-buttons {
-  width: 100%;
-  text-align-last: end;
   align-self: center;
+  text-align-last: end;
+  width: 100%;
 
   .mdc-button {
     min-width: fit-content;
@@ -9,9 +9,9 @@
 }
 
 .content {
-  margin-top: 1rem;
   display: grid;
-  grid-gap: 0.5rem 2rem;
   font-size: small;
+  grid-gap: 0.5rem 2rem;
   grid-template-columns: repeat(auto-fill, minmax(160px, max-content));
+  margin-top: 1rem;
 }

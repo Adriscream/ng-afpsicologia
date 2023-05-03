@@ -24,16 +24,25 @@
     </div>
   </mat-card-header>
   <mat-card-content class="content">
-    <span><strong>Alias:</strong> {{ client.alias }}</span>
-    <span><strong>ID Number:</strong> {{ client.idNumber }}</span>
-    <span><strong>Phone Number:</strong> {{ client.phoneNumber }}</span>
+    <span><strong i18n="@@alias">Alias:</strong> {{ client.alias }}</span>
+    <span
+      ><strong i18n="@@id-number">ID Number:</strong>
+      {{ client.idNumber }}</span
+    >
+    <span
+      ><strong i18n="@@phone-number">Phone Number:</strong>
+      {{ client.phoneNumber }}</span
+    >
     <span>
-      <strong>Date of Birth:</strong>
+      <strong i18n="@@date-of-birth">Date of Birth:</strong>
       {{ client.dateOfBirth | date : 'dd/MM/yyyy' }}
     </span>
-    <span><strong>Postal Code:</strong> {{ client.postalCode }}</span>
-    <span><strong>Address:</strong> {{ client.address }}</span>
-    <span><strong>City:</strong> {{ client.city }}</span>
+    <span
+      ><strong i18n="@@postal-code">Postal Code:</strong>
+      {{ client.postalCode }}</span
+    >
+    <span><strong i18n="@@address">Address:</strong> {{ client.address }}</span>
+    <span><strong i18n="@@city">City:</strong> {{ client.city }}</span>
   </mat-card-content>
   <mat-card-footer> </mat-card-footer>
 </mat-card>

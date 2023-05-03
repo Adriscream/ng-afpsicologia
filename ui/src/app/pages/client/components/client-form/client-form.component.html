@@ -1,4 +1,4 @@
-<h2>Clients Information</h2>
+<h2 i18n="@@clients-information">Clients Information</h2>
 
 <form [formGroup]="clientForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="client-card">
@@ -17,9 +17,11 @@
               matInput
               placeholder="First name"
               formControlName="firstName"
+              i18n-placeholder="@@form-first-name-placeholder"
             />
             <mat-error
               *ngIf="clientForm.controls['firstName'].hasError('required')"
+              i18n="@@form-first-name-error"
             >
               First name is <strong>required</strong>
             </mat-error>
@@ -29,11 +31,13 @@
           <mat-form-field class="full-width">
             <input
               matInput
+              i18n-placeholder="@@form-last-name-placeholder"
               placeholder="Last name"
               formControlName="lastName"
             />
             <mat-error
               *ngIf="clientForm.controls['lastName'].hasError('required')"
+              i18n="@@form-last-name-error"
             >
               Last name is <strong>required</strong>
             </mat-error>
@@ -47,6 +51,7 @@
               matInput
               placeholder="ID Number"
               formControlName="idNumber"
+              i18n-placeholder="@@form-id-number-placeholder"
             />
           </mat-form-field>
         </div>
@@ -56,9 +61,11 @@
               matInput
               placeholder="Phone Number"
               formControlName="phoneNumber"
+              i18n-placeholder="@@form-phone-number-placeholder"
             />
             <mat-error
               *ngIf="clientForm.controls['phoneNumber'].hasError('required')"
+              i18n-placeholder="@@form-phone-number-error"
             >
               Phone number is <strong>required</strong>
             </mat-error>
@@ -73,6 +80,7 @@
               [matDatepicker]="picker"
               placeholder="Date of Birth"
               formControlName="dateOfBirth"
+              i18n-placeholder="@@form-date-of-birth-placeholder"
             />
             <mat-datepicker-toggle
               matSuffix
@@ -83,13 +91,22 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Email" formControlName="email" />
+            <input
+              matInput
+              placeholder="Email"
+              formControlName="email"
+              i18n-placeholder="@@form-email-placeholder"
+            />
             <mat-error
               *ngIf="clientForm.controls['email'].hasError('required')"
+              i18n-placeholder="@@form-email-required-error"
             >
               Email is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="clientForm.controls['email'].hasError('email')">
+            <mat-error
+              *ngIf="clientForm.controls['email'].hasError('email')"
+              i18n-placeholder="@@form-email-error"
+            >
               Please enter a valid email address
             </mat-error>
           </mat-form-field>
@@ -105,12 +122,13 @@
               placeholder="Postal Code"
               type="number"
               formControlName="postalCode"
+              i18n-placeholder="@@form-postal-code-placeholder"
             />
             <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
           </mat-form-field>
         </div>
-      </div></mat-card-content
-    >
+      </div>
+    </mat-card-content>
     <mat-card-actions>
       <button
         mat-raised-button
@@ -127,6 +145,7 @@
         type="button"
         class="submit-button"
         (click)="cancelEdit()"
+        i18n-placeholder="@@cancel"
       >
         Cancel
       </button>

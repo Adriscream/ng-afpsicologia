@@ -10,8 +10,6 @@ export class FirebaseService {
   db: Firestore;
 
   constructor(private configService: ConfigService) {
-    debugger;
-
     const privateKey = this.configService
       .get('FIREBASE_PRIVATE_KEY')
       .replace(/\\n/g, '\n');

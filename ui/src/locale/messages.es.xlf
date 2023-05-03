@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2" target-language="es">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="alias" datatype="html">
+        <source>Alias:</source>
+        <target>Alias:</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="id-number" datatype="html">
+        <source>ID Number:</source>
+        <target>DNI:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="phone-number" datatype="html">
+        <source>Phone Number:</source>
+        <target>Teléfono:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="date-of-birth" datatype="html">
+        <source>Date of Birth:</source>
+        <target>Cumpleaños:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="postal-code" datatype="html">
+        <source>Postal Code:</source>
+        <target>Código postal:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="address" datatype="html">
+        <source>Address:</source>
+        <target>Dirección:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="city" datatype="html">
+        <source>City:</source>
+        <target>Ciudad:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-card/client-card.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="clients-information" datatype="html">
+        <source>Clients Information</source>
+        <target>Información de cliente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-first-name-placeholder" datatype="html">
+        <source>First name</source>
+        <target>Nombre</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-first-name-error" datatype="html">
+        <source> First name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+          required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" /></source>
+        <target> El nombre es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+          requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" /></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-last-name-placeholder" datatype="html">
+        <source>Last name</source>
+        <target>Apellido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-last-name-error" datatype="html">
+        <source> Last name is <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+          required<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" /></source>
+        <target> El apellido es <x id="START_TAG_STRONG" ctype="x-strong"
+            equiv-text="&lt;strong&gt;" /> requerido<x id="CLOSE_TAG_STRONG" ctype="x-strong"
+            equiv-text="&lt;/strong&gt;" /></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-id-number-placeholder" datatype="html">
+        <source>ID Number</source>
+        <target>DNI</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-phone-number-placeholder" datatype="html">
+        <source>Phone Number</source>
+        <target>Teléfono</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-date-of-birth-placeholder" datatype="html">
+        <source>Date of Birth</source>
+        <target>Cumpleaños</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-email-placeholder" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="form-postal-code-placeholder" datatype="html">
+        <source>Postal Code</source>
+        <target>Código postal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/pages/client/components/client-form/client-form.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="title" datatype="html">
+        <source>AF Scheduler</source>
+        <target>AF Scheduler</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landing/landing.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Login</source>
+        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/landing/landing.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="side-nav-menu" datatype="html">
+        <source>Menu</source>
+        <target>Menú</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="home" datatype="html">
+        <source>Home</source>
+        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dashboard" datatype="html">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="table" datatype="html">
+        <source>Table</source>
+        <target>Tabla</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tree" datatype="html">
+        <source>Tree</source>
+        <target>Tree</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="drag" datatype="html">
+        <source>Drag-Drop</source>
+        <target>Drag-Drop</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="calendar" datatype="html">
+        <source>Calendar</source>
+        <target>Calendario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="client" datatype="html">
+        <source>Client</source>
+        <target>Cliente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="sign-out" datatype="html">
+        <source> Sign out </source>
+        <target> Cerrar sesión </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/layout.component.html</context>
+          <context context-type="linenumber">30,32</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

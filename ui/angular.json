@@ -17,6 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
+            "localize": true,
             "outputPath": "dist/ui",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -59,6 +61,9 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
+            },
+            "es": {
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": "production"
@@ -72,6 +77,10 @@
             },
             "development": {
               "browserTarget": "ui:build:development",
+              "proxyConfig": "proxy.conf.json"
+            },
+            "es": {
+              "browserTarget": "ui:build:development,es",
               "proxyConfig": "proxy.conf.json"
             }
           },
@@ -92,6 +101,14 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        }
+      },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf"
           }
         }
       }
