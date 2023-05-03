@@ -6,7 +6,12 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Alias" formControlName="alias" />
+            <input
+              matInput
+              i18n-placeholder="@@form-alias-placeholder"
+              placeholder="Alias"
+              formControlName="alias"
+            />
           </mat-form-field>
         </div>
       </div>
@@ -53,6 +58,12 @@
               formControlName="idNumber"
               i18n-placeholder="@@form-id-number-placeholder"
             />
+            <mat-error
+              *ngIf="clientForm.controls['idNumber'].hasError('required')"
+              i18n="@@form-id-number-error"
+            >
+              ID number is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
@@ -73,22 +84,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input
-              matInput
-              [matDatepicker]="picker"
-              placeholder="Date of Birth"
-              formControlName="dateOfBirth"
-              i18n-placeholder="@@form-date-of-birth-placeholder"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input
@@ -125,6 +120,40 @@
               i18n-placeholder="@@form-postal-code-placeholder"
             />
             <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="City"
+              formControlName="city"
+              i18n-placeholder="@@form-city-placeholder"
+            />
+            <mat-error
+              *ngIf="clientForm.controls['city'].hasError('required')"
+              i18n="@@form-first-name-error"
+            >
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Address"
+              formControlName="address"
+              i18n-placeholder="@@form-address-placeholder"
+            />
+            <mat-error
+              *ngIf="clientForm.controls['address'].hasError('required')"
+              i18n="@@form-first-name-error"
+            >
+              Address is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>

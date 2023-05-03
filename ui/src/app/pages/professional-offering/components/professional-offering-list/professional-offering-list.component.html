@@ -1,0 +1,26 @@
+<div
+  *ngIf="professionalOfferings$ | async as professionalOfferings"
+  class="container"
+>
+  <h2 i18n-placeholder="@@professional-offerings">Services</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="professionalOfferings"
+    class="list"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <div
+      class="list-item"
+      *ngFor="let professionalOffering of professionalOfferings"
+      cdkDrag
+    >
+      <af-professional-offering-card
+        [professionalOffering]="professionalOffering"
+        (edit)="editProfessionalOffering(professionalOffering)"
+        (delete)="deleteProfessionalOffering(professionalOffering?.id)"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+form {
+  border-radius: 5px;
+
+  .full-width {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: block;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    input[type='checkbox'] {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+
+  .submit-button {
+    margin: 0.5rem;
+    width: 100%;
+  }
+}

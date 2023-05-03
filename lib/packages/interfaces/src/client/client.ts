@@ -6,7 +6,6 @@ export interface Client {
   lastName?: string;
   idNumber?: string;
   phoneNumber: string;
-  dateOfBirth?: Date;
   email: string;
   postalCode?: string;
   address?: string;

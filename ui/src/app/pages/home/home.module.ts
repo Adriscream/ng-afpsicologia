@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AddressFormModule } from '@components/address-form/address-form.module';
+import { DashboardModule } from '@components/dashboard/dashboard.module';
 
 import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, AddressFormModule],
+  imports: [CommonModule, DashboardModule],
 })
 export class HomeModule {}

@@ -1,42 +1,45 @@
 import { Injectable } from '@nestjs/common';
 import { ProfessionalOfferingRepository } from '../repository/professional-offering.repository';
 import { ProfessionalOffering } from '@lib/interfaces';
+import { UserSession } from '@common/auth';
+import { ProfessionalOfferingMapper } from './professional-offering.mapper';
 
 @Injectable()
 export class ProfessionalOfferingService {
   constructor(
-    private professionalOfferingRepository: ProfessionalOfferingRepository
+    private professionalOfferingRepository: ProfessionalOfferingRepository,
+    private professionalOfferingMapper: ProfessionalOfferingMapper
   ) {}
 
-  async findAll(): Promise<ProfessionalOffering[]> {
-    const professionalOfferings =
-      await this.professionalOfferingRepository.findAll();
-    return professionalOfferings;
+  findAll(userId: string): Promise<ProfessionalOffering[]> {
+    return this.professionalOfferingRepository.findAll(userId);
   }
 
-  async findById(id: string): Promise<ProfessionalOffering | null> {
-    const professionalOffering =
-      await this.professionalOfferingRepository.findById(id);
-    return professionalOffering;
+  findById(id: string): Promise<ProfessionalOffering | null> {
+    return this.professionalOfferingRepository.findById(id);
   }
 
-  async create(data: ProfessionalOffering): Promise<ProfessionalOffering> {
-    const professionalOffering =
-      await this.professionalOfferingRepository.create(data);
-    return professionalOffering;
+  async upsert(
+    data: ProfessionalOffering,
+    session: UserSession
+  ): Promise<ProfessionalOffering> {
+    const professionalOffering = this.professionalOfferingMapper.mapToEntity(
+      data,
+      session
+    );
+    if (professionalOffering.id) {
+      const updatedClient = await this.professionalOfferingRepository.update(
+        professionalOffering.id,
+        data
+      );
+      if (updatedClient) {
+        return updatedClient;
+      }
+    }
+    return this.professionalOfferingRepository.create(professionalOffering);
   }
 
-  async update(
-    id: string,
-    data: Partial<ProfessionalOffering>
-  ): Promise<ProfessionalOffering | null> {
-    const professionalOffering =
-      await this.professionalOfferingRepository.update(id, data);
-    return professionalOffering;
-  }
-
-  async delete(id: string): Promise<boolean> {
-    const isDeleted = await this.professionalOfferingRepository.delete(id);
-    return isDeleted;
+  delete(id: string): Promise<boolean> {
+    return this.professionalOfferingRepository.delete(id);
   }
 }

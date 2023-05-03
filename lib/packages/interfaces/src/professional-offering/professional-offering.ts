@@ -1,15 +1,9 @@
 export interface ProfessionalOffering {
-  id: string;
+  id?: string;
   userId: string;
   name: string;
   description: string;
-  specialties: string[];
-  yearsOfExperience?: number;
-  availability: {
-    daysOfWeek: string[];
-    startTime: string;
-    endTime: string;
-  };
+  duration: number;
   price: number;
-  iva: 4 | 10 | 21;
+  iva: number;
 }

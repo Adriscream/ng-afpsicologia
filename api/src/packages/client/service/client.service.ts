@@ -11,14 +11,12 @@ export class ClientService {
     private clientMapper: ClientMapper
   ) {}
 
-  async findAll(userId: string): Promise<Client[]> {
-    const clients = await this.clientRepository.findAll(userId);
-    return clients;
+  findAll(userId: string): Promise<Client[]> {
+    return this.clientRepository.findAll(userId);
   }
 
-  async findById(id: string): Promise<Client | null> {
-    const client = await this.clientRepository.findById(id);
-    return client;
+  findById(id: string): Promise<Client | null> {
+    return this.clientRepository.findById(id);
   }
 
   async upsert(data: Client, session: UserSession): Promise<Client> {
@@ -32,8 +30,7 @@ export class ClientService {
     return this.clientRepository.create(client);
   }
 
-  async delete(id: string): Promise<boolean> {
-    const isDeleted = await this.clientRepository.delete(id);
-    return isDeleted;
+  delete(id: string): Promise<boolean> {
+    return this.clientRepository.delete(id);
   }
 }

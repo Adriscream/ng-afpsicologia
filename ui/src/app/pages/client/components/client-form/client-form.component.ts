@@ -13,14 +13,12 @@ export class ClientFormComponent implements OnInit, OnDestroy {
   client?: Client | null;
 
   clientForm = this.formBuilder.group({
-    userId: [''],
     alias: [''],
     firstName: ['', Validators.required],
     lastName: [''],
     idNumber: [''],
-    phoneNumber: ['', Validators.required],
-    dateOfBirth: [''],
-    email: ['', [Validators.required, Validators.email]],
+    phoneNumber: [''],
+    email: ['', [Validators.email]],
     postalCode: [''],
     address: [''],
     city: [''],

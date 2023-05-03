@@ -6,11 +6,15 @@
     >
     <mat-card-subtitle>{{ client.email }}</mat-card-subtitle>
     <div class="header-buttons">
-      <a mat-button href="mailto:{{ client.email }}">
+      <a *ngIf="client.email" mat-button href="mailto:{{ client.email }}">
         <mat-icon>email</mat-icon>
       </a>
 
-      <a mat-button href="tel:{{ client.phoneNumber }}">
+      <a
+        *ngIf="client.phoneNumber"
+        mat-button
+        href="tel:{{ client.phoneNumber }}"
+      >
         <mat-icon>phone</mat-icon>
       </a>
 
@@ -24,25 +28,26 @@
     </div>
   </mat-card-header>
   <mat-card-content class="content">
-    <span><strong i18n="@@alias">Alias:</strong> {{ client.alias }}</span>
-    <span
+    <span *ngIf="client.alias"
+      ><strong i18n="@@alias">Alias:</strong> {{ client.alias }}</span
+    >
+    <span *ngIf="client.idNumber"
       ><strong i18n="@@id-number">ID Number:</strong>
       {{ client.idNumber }}</span
     >
-    <span
+    <span *ngIf="client.phoneNumber"
       ><strong i18n="@@phone-number">Phone Number:</strong>
       {{ client.phoneNumber }}</span
     >
-    <span>
-      <strong i18n="@@date-of-birth">Date of Birth:</strong>
-      {{ client.dateOfBirth | date : 'dd/MM/yyyy' }}
-    </span>
-    <span
+    <span *ngIf="client.postalCode"
       ><strong i18n="@@postal-code">Postal Code:</strong>
       {{ client.postalCode }}</span
     >
-    <span><strong i18n="@@address">Address:</strong> {{ client.address }}</span>
-    <span><strong i18n="@@city">City:</strong> {{ client.city }}</span>
+    <span *ngIf="client.address"
+      ><strong i18n="@@address">Address:</strong> {{ client.address }}</span
+    >
+    <span *ngIf="client.city"
+      ><strong i18n="@@city">City:</strong> {{ client.city }}</span
+    >
   </mat-card-content>
-  <mat-card-footer> </mat-card-footer>
 </mat-card>

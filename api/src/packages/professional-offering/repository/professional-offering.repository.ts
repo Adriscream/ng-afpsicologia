@@ -10,58 +10,33 @@ export class ProfessionalOfferingRepository {
     'professionalOfferings'
   );
 
-  async findAll(): Promise<ProfessionalOffering[]> {
-    const professionalOfferingsSnapshot = await this.collection.get();
-    const professionalOfferings: ProfessionalOffering[] = [];
-
-    professionalOfferingsSnapshot.forEach((doc) => {
-      const professionalOffering = doc.data();
-      professionalOfferings.push({
-        ...professionalOffering,
-        id: doc.id,
-      } as ProfessionalOffering);
-    });
-
-    return professionalOfferings;
+  async findAll(userId: string): Promise<ProfessionalOffering[]> {
+    return this.firestore.findAll<ProfessionalOffering>(
+      userId,
+      this.collection
+    );
   }
 
-  async findById(_id: string): Promise<ProfessionalOffering | null> {
-    // const { exists, data } = await this.collection.doc(id).get();
-    // if (!exists) {
-    //   return null;
-    // }
-    // return { ...data(), id } as ProfessionalOffering;
-    return null;
+  async findById(id: string): Promise<ProfessionalOffering | null> {
+    return this.firestore.findById<ProfessionalOffering>(id, this.collection);
   }
 
   async create(data: ProfessionalOffering): Promise<ProfessionalOffering> {
-    const id = crypto.randomUUID();
-    await this.collection.doc(id).set(data);
-    return { ...data, id } as ProfessionalOffering;
+    return this.firestore.create<ProfessionalOffering>(data, this.collection);
   }
 
   async update(
-    _id: string,
-    _data: Partial<ProfessionalOffering>
+    id: string,
+    data: Partial<ProfessionalOffering>
   ): Promise<ProfessionalOffering | null> {
-    // const docRef = this.collection.doc(id);
-    // const docSnapshot = await docRef.get();
-    // if (!docSnapshot.exists) {
-    //   return null;
-    // }
-    // await docRef.update(data);
-    // const updatedProfessionalOffering = await docRef.get();
-    // return { id, ...updatedProfessionalOffering.data() } as ProfessionalOffering;
-    return null;
+    return this.firestore.update<ProfessionalOffering>(
+      id,
+      data,
+      this.collection
+    );
   }
 
-  async delete(_id: string): Promise<boolean> {
-    // const docRef = this.collection.doc(id);
-    // const docSnapshot = await docRef.get();
-    // if (!docSnapshot.exists) {
-    //   return false;
-    // }
-    // await docRef.delete();
-    return true;
+  async delete(id: string): Promise<boolean> {
+    return this.firestore.delete(id, this.collection);
   }
 }

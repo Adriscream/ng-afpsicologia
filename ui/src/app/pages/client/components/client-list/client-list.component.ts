@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '@components/confirm-dialog/confirm-dialog.component';
 import { Client } from '@lib/interfaces';
 import { ClientFacade } from '@pages/client/store/client.facade';
-import { filter, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'af-client-list',

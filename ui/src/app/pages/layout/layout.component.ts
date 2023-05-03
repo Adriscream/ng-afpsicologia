@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@app/common/auth/auth.service';
 import { UserFacade } from '@app/common/store/user/public-api';
 import { ClientFacade } from '@pages/client/store/client.facade';
+import { ProfessionalOfferingFacade } from '@pages/professional-offering/store/professional-offering.facade';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
@@ -25,15 +26,21 @@ export class LayoutComponent implements OnInit {
     public userFacade: UserFacade,
     public authService: AuthService,
     private clientFacade: ClientFacade,
+    private professionalOfferingFacade: ProfessionalOfferingFacade,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getClients();
+    this.getProfessionalOfferings();
   }
 
   getClients() {
     return this.clientFacade.getClients();
+  }
+
+  getProfessionalOfferings() {
+    return this.professionalOfferingFacade.getProfessionalOfferings();
   }
 
   signOut() {
