@@ -15,3 +15,42 @@
   top: 0;
   z-index: 1;
 }
+
+.toolbar-lg {
+  align-items: center;
+  display: grid;
+  flex: 1;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+
+.account {
+  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.account-image {
+  border-radius: 50%;
+}
+
+.account-icon {
+  font-size: 30px;
+  height: auto;
+  margin-left: 8px;
+  width: auto;
+}
+
+.sign-out {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    animation-name: rubberBand;
+    background-color: #3f51b5;
+  }
+}

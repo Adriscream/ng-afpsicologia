@@ -17,6 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
+            "localize": true,
             "outputPath": "dist/ui",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,7 +26,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "@angular/material/prebuilt-themes/indigo-pink.css"],
+            "styles": [
+              "src/styles.scss",
+              "@angular/material/prebuilt-themes/purple-green.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -49,7 +54,19 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            // "en": {
+            //   "localize": ["en"]
+            // },
+            "es": {
+              "localize": ["es"]
             }
           },
           "defaultConfiguration": "production"
@@ -58,10 +75,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ui:build:production"
+              "browserTarget": "ui:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "browserTarget": "ui:build:development"
+              "browserTarget": "ui:build:development",
+              "proxyConfig": "proxy.conf.json"
+            },
+            "es": {
+              "browserTarget": "ui:build:development,es",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -84,6 +107,14 @@
           }
         }
       }
+      // "i18n": {
+      //   "sourceLocale": "en-US",
+      //   "locales": {
+      //     "es": {
+      //       "translation": "src/locale/messages.es.xlf"
+      //     }
+      //   }
+      // }
     }
   }
 }

@@ -1,0 +1,8 @@
+{
+  "name": "@lib/interfaces",
+  "version": "0.0.0",
+  "main": "src/public-api.ts",
+  "private": true,
+  "sideEffects": false,
+  "type": "commonjs"
+}

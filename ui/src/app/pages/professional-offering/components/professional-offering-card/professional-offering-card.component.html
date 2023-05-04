@@ -1,0 +1,34 @@
+<mat-card *ngIf="professionalOffering">
+  <mat-card-header class="card-header">
+    <mat-icon mat-card-avatar>settings_accessibility</mat-icon>
+    <mat-card-title>{{ professionalOffering.name }}</mat-card-title>
+    <div class="card-header-buttons">
+      <button mat-button (click)="delete.next()">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <button mat-button (click)="edit.next()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-card-subtitle *ngIf="professionalOffering.price">{{
+      professionalOffering.description
+    }}</mat-card-subtitle>
+    <div class="content">
+      <span *ngIf="professionalOffering.price"
+        ><strong i18n="@@price">Price:</strong>
+        {{ professionalOffering.price }}</span
+      >
+      <span *ngIf="professionalOffering.iva"
+        ><strong i18n="@@iva">Iva:</strong> {{ professionalOffering.iva }}</span
+      >
+      <span *ngIf="professionalOffering.duration"
+        ><strong i18n="@@duration">Duration:</strong>
+        {{ professionalOffering.duration }}</span
+      >
+    </div>
+  </mat-card-content>
+</mat-card>

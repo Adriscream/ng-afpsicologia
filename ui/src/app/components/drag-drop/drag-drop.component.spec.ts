@@ -1,6 +1,7 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DragDropComponent } from './drag-drop.component';
 
 describe('DragDropComponent', () => {

@@ -1,23 +1,27 @@
 {
   "name": "ng-afpsicologia",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
-    "install": "pnpm recursive run install",
-    "build": "pnpm recursive run bulid",
-    "test": "pnpm recursive run test",
-    "lint": "pnpm recursive run lint",
-    "lint:fix": "pnpm recursive run lint:fix",
-    "stylelint": "pnpm recursive run stylelint",
-    "stylelint:fix": "pnpm recursive run stylelint:fix",
-    "prettier": "pnpm recursive run prettier",
-    "fix": "pnpm lint:fix && pnpm stylelint:fix && prettier",
+    "build": "pnpm --recursive --parallel --aggregate-output build",
+    "test": "pnpm --recursive --parallel --aggregate-output test",
+    "lint": "pnpm --recursive --parallel --aggregate-output lint",
     "ui": "pnpm -F ui start",
-    "api": "pnpm -F api start"
+    "api": "pnpm -F api start",
+    "preinstall": "only-allow pnpm",
+    "prepare": "pnpx husky install",
+    "release": "standard-version --no-verify"
   },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "typescript": "~4.9.4",
-    "prettier": "^2.8.8"
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
+    "@commitlint/cz-commitlint": "^17.5.0",
+    "commitizen": "^4.3.0",
+    "husky": "^8.0.3",
+    "inquirer": "^9.2.0",
+    "only-allow": "^1.1.1",
+    "prettier": "^2.8.8",
+    "standard-version": "^9.5.0",
+    "typescript": "~4.9.4"
   }
 }
