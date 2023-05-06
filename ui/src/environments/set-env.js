@@ -5,7 +5,7 @@ const targetPath = './src/environments/environment.ts';
 require('dotenv').config({
   path: './src/environments/.env',
 });
-debugger;
+console.log(process.env);
 const envConfigFile = `export const environment = {
     baseUrl: '${process.env.BASE_URL}',
     imgCDNPublicKey: '${process.env.IMG_CDN_PUBLIC_KEY}',
