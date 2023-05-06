@@ -14,9 +14,10 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v3
+      - name: Install dependencies
       - run: npm install -g pnpm
       - run: pnpm install --no-frozen-lockfile
-        env:
+      - env:
           BASE_URL: ${{ secrets.BASE_URL }}
           IMG_CDN_PUBLIC_KEY: ${{ secrets.IMG_CDN_PUBLIC_KEY }}
           IMG_CDN_URL_ENDPOINT: ${{ secrets.IMG_CDN_URL_ENDPOINT }}
@@ -32,7 +33,7 @@ jobs:
       - run: pnpm -F ui config:env
       - run: pnpm -F ui build
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
+      - with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_AFPSICOLOGIA }}'
           channelId: live
