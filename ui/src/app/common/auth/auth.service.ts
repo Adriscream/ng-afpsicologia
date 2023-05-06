@@ -31,6 +31,8 @@ export class AuthService {
     private globalFacade: GlobalFacade,
     private userFacade: UserFacade
   ) {
+    console.log('Environment', environment);
+    console.log('Environment baseUrl', environment.baseUrl);
     this.app = initializeApp({
       apiKey: environment.firestoreApiKey,
       authDomain: environment.firestoreAuthDomain,
