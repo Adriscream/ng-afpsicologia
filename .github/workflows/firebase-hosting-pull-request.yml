@@ -8,13 +8,12 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy UI
       - uses: actions/checkout@v3
-      - name: Install dependencies
       - run: npm install -g pnpm
       - run: pnpm install --no-frozen-lockfile
-      - name: Set .env
-      - env:
+      - run: pnpm -F ui config:env
+      - run: pnpm -F ui build
+        env:
           BASE_URL: ${{ secrets.BASE_URL }}
           IMG_CDN_PUBLIC_KEY: ${{ secrets.IMG_CDN_PUBLIC_KEY }}
           IMG_CDN_URL_ENDPOINT: ${{ secrets.IMG_CDN_URL_ENDPOINT }}
@@ -27,11 +26,3 @@ jobs:
           FIRESTORE_APP_ID: ${{ secrets.FIRESTORE_APP_ID }}
           FIRESTORE_MEASUREMENT_ID: ${{ secrets.FIRESTORE_MEASUREMENT_ID }}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-      - run: pnpm -F ui config:env
-      - name: Build UI
-      - run: pnpm -F ui build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_AFPSICOLOGIA }}'
-          projectId: ng-afpsicologia

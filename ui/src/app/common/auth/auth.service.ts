@@ -38,7 +38,7 @@ export class AuthService {
       storageBucket: environment.firestoreStorageBucket,
       messagingSenderId: environment.firestoreSenderId,
       appId: environment.firestoreAppId,
-      measurementId: environment.firestoreMeadurementId,
+      measurementId: environment.firestoreMeasurementId,
     });
     this.auth = getAuth(this.app);
 
