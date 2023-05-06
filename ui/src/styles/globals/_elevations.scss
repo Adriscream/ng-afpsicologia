@@ -1,0 +1,21 @@
+$elevations: (
+  'sunk': -100,
+  'standard': 0,
+  'raised': 100,
+  'raised-1': 110,
+  'raised-2': 120,
+  'raised-3': 130,
+  'raised-4': 140,
+  'raised-5': 150,
+  'dropdown': 1000,
+  'dropdown-field': 1010,
+  'header': 1100,
+  'header-dropdown-overlay': 1150,
+  'header-dropdown': 1200,
+  'dialog': 1300,
+  'toast': 1400,
+  'tooltip': 1500,
+  'load-bar': 1600,
+);
+
+@include elevations($elevations);

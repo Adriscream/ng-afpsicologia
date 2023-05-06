@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { ClientApiService } from '@pages/client/services/client-api.service';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 
+import { ClientApiService } from '../services/client-api.service';
 import {
   confirmDeleteClient,
   deleteClient,

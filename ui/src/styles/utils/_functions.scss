@@ -1,0 +1,33 @@
+@use 'sass:string';
+@use 'sass:list';
+
+@function str-replace($string, $search, $replace) {
+  $index: string.index($string, $search);
+
+  @if $index {
+    /* stylelint-disable-next-line scss/operator-no-newline-after */
+    @return string.slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        string.slice($string, $index + string.length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+@function str-split($string, $separator) {
+  $result: ();
+  $index: string.index($string, $separator);
+  @while $index != null {
+    $item: string.slice($string, 1, $index - 1);
+    $result: list.append($result, $item);
+    $string: string.slice($string, $index + 1);
+    $index: string.index($string, $separator);
+  }
+
+  $result: list.append($result, $string);
+
+  @return $result;
+}

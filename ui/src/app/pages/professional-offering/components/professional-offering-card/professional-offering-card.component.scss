@@ -2,8 +2,14 @@
   align-items: center;
 
   .mat-icon {
+    height: auto;
     margin: 0;
+    width: auto;
   }
+}
+
+mat-card-subtitle {
+  margin-top: 0.5rem;
 }
 
 .card-header-buttons {

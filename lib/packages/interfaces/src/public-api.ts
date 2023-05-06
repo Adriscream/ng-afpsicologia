@@ -1,4 +1,4 @@
-export * from './appointment/public-api';
+export * from './calendar-event/public-api';
 export * from './client/public-api';
 export * from './invoice/public-api';
 export * from './professional-offering/public-api';

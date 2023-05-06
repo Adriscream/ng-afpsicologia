@@ -1,8 +1,14 @@
-<div
-  *ngIf="professionalOfferings$ | async as professionalOfferings"
-  class="container"
->
+<div *ngIf="professionalOfferings" class="container">
   <h2 i18n-placeholder="@@professional-offerings">Services</h2>
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      i18n-placeholder="@@professional-offerings-list-search"
+      placeholder="Search services"
+      [formControl]="search"
+    />
+    <mat-icon class="input-search-icon">search</mat-icon>
+  </mat-form-field>
 
   <div
     cdkDropList

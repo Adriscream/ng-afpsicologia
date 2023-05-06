@@ -5,6 +5,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
@@ -14,7 +15,7 @@ export class APIInterceptor implements HttpInterceptor {
     }
 
     const reqWithApi = req.clone({
-      url: `/api/v1${req.url}`,
+      url: `${environment.baseUrl}v1${req.url}`,
     });
     return next.handle(reqWithApi);
   }

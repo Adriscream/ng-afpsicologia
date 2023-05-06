@@ -59,6 +59,10 @@ Thumbs.db
 .env.json
 .env-*.json
 
-environments
+environment.ts
+environment.development.ts
 
 serviceAccountKey.json
+
+# Hoisting
+.firebase

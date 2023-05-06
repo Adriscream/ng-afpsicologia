@@ -1,8 +1,9 @@
 {
   "name": "ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
+    "config:env": "node src/environments/set-env.js",
     "start": "ng serve",
     "start:es": "ng serve --configuration es",
     "start:development": "ng serve --configuration development",
@@ -14,8 +15,8 @@
     "i18n:es": "ng extract-i18n --output-path=src/locale && ./src/locale/extract-i18n.sh",
     "i18n:extract": "bash ./src/locale/extract-i18n.sh",
     "lint": "pnpm tsc && pnpm eslint:fix && pnpm stylelint:fix && pnpm prettier",
-    "eslint": "eslint \"**/*.{ts,html,js}\"",
-    "eslint:fix": "eslint --fix \"**/*.{ts,html,js}\"",
+    "eslint": "eslint \"**/*.{ts,html}\"",
+    "eslint:fix": "eslint --fix \"**/*.{ts,html}\"",
     "stylelint": "stylelint --max-warnings=0 \"**/*.{css,scss}\"",
     "stylelint:fix": "stylelint --max-warnings=0 --fix \"**/*.{css,scss}\"",
     "prettier": "prettier --write . --loglevel warn",
@@ -48,6 +49,7 @@
     "firebase": "^9.21.0",
     "imagekitio-angular": "^2.0.0",
     "rxjs": "~7.8.0",
+    "stylelint-config-standard-scss": "^9.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
@@ -60,8 +62,10 @@
     "@angular/compiler-cli": "^15.2.0",
     "@angular/localize": "15.2.0",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
+    "dotenv": "^16.0.3",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-angular": "^4.1.0",
@@ -77,9 +81,7 @@
     "prettier": "^2.8.8",
     "stylelint": "^15.6.0",
     "stylelint-config-prettier": "^9.0.5",
-    "stylelint-config-standard": "^33.0.0",
     "stylelint-order": "^6.0.3",
-    "stylelint-scss": "^4.6.0",
     "typescript": "~4.9.4"
   }
 }

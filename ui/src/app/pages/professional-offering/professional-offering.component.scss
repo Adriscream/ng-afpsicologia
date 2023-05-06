@@ -1,6 +1,5 @@
+@import 'utils';
+
 .container {
-  display: grid;
-  gap: 1.5rem;
-  grid-auto-flow: column;
-  padding: 1rem;
+  @include af-grid;
 }

@@ -17,9 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
-            "localize": true,
-            "outputPath": "dist/ui",
+            // "aot": true,
+            // "localize": true,
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -28,8 +28,12 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
-              "@angular/material/prebuilt-themes/purple-green.css"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles/utils", "src/styles/globals"]
+            },
+            "allowedCommonJsDependencies": ["imagekitio-angular"],
             "scripts": []
           },
           "configurations": {
@@ -61,13 +65,13 @@
                   "with": "src/environments/environment.development.ts"
                 }
               ]
-            },
+            }
             // "en": {
             //   "localize": ["en"]
             // },
-            "es": {
-              "localize": ["es"]
-            }
+            // "es": {
+            //   "localize": ["es"]
+            // }
           },
           "defaultConfiguration": "production"
         },
@@ -81,20 +85,20 @@
             "development": {
               "browserTarget": "ui:build:development",
               "proxyConfig": "proxy.conf.json"
-            },
-            "es": {
-              "browserTarget": "ui:build:development,es",
-              "proxyConfig": "proxy.conf.json"
             }
+            // "es": {
+            //   "browserTarget": "ui:build:development,es",
+            //   "proxyConfig": "proxy.conf.json"
+            // }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ui:build"
-          }
-        },
+        // "extract-i18n": {
+        //   "builder": "@angular-devkit/build-angular:extract-i18n",
+        //   "options": {
+        //     "browserTarget": "ui:build"
+        //   }
+        // },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

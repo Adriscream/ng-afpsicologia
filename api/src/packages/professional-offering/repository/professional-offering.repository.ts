@@ -7,7 +7,7 @@ export class ProfessionalOfferingRepository {
   constructor(private firestore: FirebaseService) {}
 
   private readonly collection = this.firestore.db.collection(
-    'professionalOfferings'
+    'professional-offerings'
   );
 
   async findAll(userId: string): Promise<ProfessionalOffering[]> {

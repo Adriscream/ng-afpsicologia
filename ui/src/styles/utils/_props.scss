@@ -1,0 +1,20 @@
+@use 'sass:string';
+@function valid-prop-name($name) {
+  $chars-to-replace: '/', '.', ' ';
+  @each $char in $chars-to-replace {
+    $name: str-replace($name, $char, '-');
+  }
+  @return string.to-lower-case($name);
+}
+
+@mixin props($props, $prefix) {
+  :root {
+    @each $name, $value in $props {
+      --dx-#{$prefix}-#{valid-prop-name($name)}: #{$value};
+    }
+  }
+}
+
+@function prop($name) {
+  @return var(--dx-#{valid-prop-name($name)});
+}
