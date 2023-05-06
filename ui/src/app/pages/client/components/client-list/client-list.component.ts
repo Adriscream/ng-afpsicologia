@@ -1,9 +1,12 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { getSearchObservable } from '@app/common/search/search.utils';
 import { ConfirmDialogComponent } from '@components/confirm-dialog/confirm-dialog.component';
 import { Client } from '@lib/interfaces';
 import { ClientFacade } from '@pages/client/store/client.facade';
+import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -11,10 +14,33 @@ import { take } from 'rxjs/operators';
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.scss'],
 })
-export class ClientListComponent {
-  clients$ = this.clientFacade.clients$;
+export class ClientListComponent implements OnInit, OnDestroy {
+  search = new FormControl({ value: '', disabled: true });
+
+  clients?: Client[];
+
+  clientSubscription?: Subscription;
 
   constructor(private clientFacade: ClientFacade, private dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.enableSearch();
+  }
+
+  ngOnDestroy(): void {
+    this.clientSubscription?.unsubscribe();
+  }
+
+  private enableSearch() {
+    this.clientSubscription = getSearchObservable<Client>(
+      this.clientFacade.clients$,
+      this.search.valueChanges
+    ).subscribe((clients) => {
+      this.clients = clients;
+    });
+
+    this.search.enable();
+  }
 
   drop(event: CdkDragDrop<Client[]>): void {
     moveItemInArray(

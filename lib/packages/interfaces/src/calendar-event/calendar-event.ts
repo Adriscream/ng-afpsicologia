@@ -1,17 +1,17 @@
-export interface Appointment {
-  id: string;
-  userId: string;
+export interface CalendarEvent {
+  id?: string;
+  userId?: string;
   serviceId: string;
   clientId: string;
-  date: Date;
-  status: AppointmentStatus;
-  startTime: Date;
+  status: CalendarEventStatus;
   paymentMethod: PaymentMethod;
-  createdAt?: Date;
-  updatedAt?: Date;
+  start: string;
+  end: string;
+  allDay: boolean;
+  title: string;
 }
 
-export enum AppointmentStatus {
+export enum CalendarEventStatus {
   PAID = 'paid',
   UNPAID = 'unpaid',
   UNCONFIRMED = 'unconfirmed',

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@app/common/auth/auth.service';
 import { UserFacade } from '@app/common/store/user/public-api';
+import { CalendarEventFacade } from '@pages/calendar/store/calendar.facade';
 import { ClientFacade } from '@pages/client/store/client.facade';
 import { ProfessionalOfferingFacade } from '@pages/professional-offering/store/professional-offering.facade';
 import { Observable } from 'rxjs';
@@ -27,20 +28,26 @@ export class LayoutComponent implements OnInit {
     public authService: AuthService,
     private clientFacade: ClientFacade,
     private professionalOfferingFacade: ProfessionalOfferingFacade,
+    private calendarEventFacade: CalendarEventFacade,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getClients();
     this.getProfessionalOfferings();
+    this.getCalendarEvents();
   }
 
-  getClients() {
-    return this.clientFacade.getClients();
+  private getClients() {
+    this.clientFacade.getClients();
   }
 
-  getProfessionalOfferings() {
-    return this.professionalOfferingFacade.getProfessionalOfferings();
+  private getProfessionalOfferings() {
+    this.professionalOfferingFacade.getProfessionalOfferings();
+  }
+
+  private getCalendarEvents() {
+    this.calendarEventFacade.getCalendarEvents();
   }
 
   signOut() {

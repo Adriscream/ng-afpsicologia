@@ -1,0 +1,54 @@
+@mixin sr {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@mixin hidden {
+  display: none !important;
+}
+
+$size-prefix: 'size';
+
+@mixin sizes($props) {
+  @include props($props, $size-prefix);
+}
+
+@function size($name) {
+  @return prop(#{$size-prefix}-#{$name});
+}
+
+@mixin line-clamp($lines: 1) {
+  -webkit-box-orient: vertical;
+
+  // @see https://stackoverflow.com/a/34559614
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+@mixin af-grid-columns {
+  display: grid;
+  gap: var(--af-grid-gap);
+
+  @include bp-gt-sm {
+    grid-auto-flow: column;
+    grid-template-columns: repeat(var(--af-grid-columns), 1fr);
+  }
+}
+
+@mixin af-grid-padding {
+  padding: var(--af-grid-padding);
+}
+
+@mixin af-grid {
+  @include af-grid-columns;
+  @include af-grid-padding;
+}

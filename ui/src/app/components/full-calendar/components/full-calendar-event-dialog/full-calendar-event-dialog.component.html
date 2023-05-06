@@ -1,0 +1,138 @@
+<h2 mat-dialog-title>
+  <span>Add Event data</span>
+</h2>
+<div mat-dialog-content class="row">
+  <form [formGroup]="eventForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Client id</mat-label>
+          <mat-select
+            placeholder="Client id"
+            i18n-placeholder="@@form-client-id-placeholder"
+            formControlName="clientId"
+          >
+            <mat-option
+              *ngFor="let option of clientOptions$ | async"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="eventForm.controls['clientId'].hasError('required')"
+            i18n="@@form-first-name-error"
+          >
+            Client is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Service id</mat-label>
+          <mat-select
+            placeholder="Service id"
+            i18n-placeholder="@@form-service-id-placeholder"
+            formControlName="serviceId"
+          >
+            <mat-option
+              *ngFor="let option of serviceOptions$ | async"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="eventForm.controls['serviceId'].hasError('required')"
+            i18n="@@form-first-name-error"
+          >
+            Service is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Payment method</mat-label>
+          <mat-select
+            placeholder="Payment method"
+            i18n-placeholder="@@form-payment-method-placeholder"
+            formControlName="paymentMethod"
+          >
+            <mat-option
+              *ngFor="let option of paymentMethodOptions"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="eventForm.controls['paymentMethod'].hasError('required')"
+            i18n="@@form-first-name-error"
+          >
+            Payment method is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select
+            placeholder="Status"
+            i18n-placeholder="@@form-status-placeholder"
+            formControlName="status"
+          >
+            <mat-option
+              *ngFor="let option of statusOptions"
+              [value]="option.value"
+            >
+              {{ option.label }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="eventForm.controls['status'].hasError('required')"
+            i18n="@@form-first-name-error"
+          >
+            Status is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- TODO dates -->
+      <!-- <div class="col">
+        <mat-form-field class="full-width">
+          
+              <mat-label>End</mat-label>
+<input
+            matInput
+                 placeholder="End"
+              i18n-placeholder="@@form-end-placeholder" formControlName="end"
+            [matDatepicker]="picker"
+            placeholder="Choose a date"
+            [disabled]="true"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+            [disabled]="true"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker [disabled]="true"></mat-datepicker>
+        </mat-form-field>
+      </div> -->
+    </div>
+    <div mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button color="primary" type="submit">Accept</button>
+    </div>
+  </form>
+</div>
+
+<button
+  class="delete-button"
+  *ngIf="data.canDelete"
+  mat-icon-button
+  aria-label="Delete button"
+  tabindex="0"
+  (click)="onDelete()"
+>
+  <mat-icon>delete</mat-icon>
+</button>

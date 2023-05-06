@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { UserModule } from '@app/common/_user/user.module';
 import { ImageCDNModule } from '@app/common/image-cdn/image-cdn.module';
+import { CalendarEventStoreModule } from '@pages/calendar/store/calendar.module';
 import { ClientStoreModule } from '@pages/client/store/client.module';
 import { ProfessionalOfferingStoreModule } from '@pages/professional-offering/store/professional-offering.module';
 
@@ -31,6 +32,7 @@ import { LayoutComponent } from './layout.component';
     ImageCDNModule,
     ClientStoreModule,
     ProfessionalOfferingStoreModule,
+    CalendarEventStoreModule,
   ],
   exports: [LayoutComponent],
 })

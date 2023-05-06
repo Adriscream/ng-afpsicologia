@@ -1,0 +1,40 @@
+:root {
+  --af-grid-padding: 1rem;
+  --af-grid-gap: 1.5rem;
+  --af-grid-columns: 2;
+}
+
+.af {
+  &-sr {
+    @include sr;
+  }
+
+  &-hidden {
+    @include hidden;
+  }
+
+  &-block {
+    display: block;
+  }
+
+  &-fill-h {
+    height: 100%;
+  }
+
+  &-fill-w {
+    width: 100%;
+  }
+
+  &-fill {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@include sizes(
+  (
+    'header-border': 2px,
+    'header-content': 80px,
+    'header-height': 80px,
+  )
+);

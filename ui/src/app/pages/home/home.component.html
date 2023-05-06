@@ -1,1 +1,8 @@
-<af-dashboard></af-dashboard>
+<af-dashboard
+  [user]="userFacade.user$ | async"
+  [clients]="clientFacade.clients$ | async"
+  [professionalOfferings]="
+    professionalOfferingFacade.professionalOfferings$ | async
+  "
+  [calendarEvents]="calendarEventFacade.calendarEvents$ | async"
+></af-dashboard>

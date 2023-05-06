@@ -62,3 +62,6 @@ Thumbs.db
 environments
 
 serviceAccountKey.json
+
+# Hoisting
+.firebase

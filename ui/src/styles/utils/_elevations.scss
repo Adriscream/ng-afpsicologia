@@ -1,0 +1,9 @@
+$elevation-prefix: 'elevation';
+
+@mixin elevations($props) {
+  @include props($props, $elevation-prefix);
+}
+
+@function elevation($name) {
+  @return prop(#{$elevation-prefix}-#{$name});
+}

@@ -4,7 +4,6 @@ import { StoreModule } from '@ngrx/store';
 
 import { ClientApiService } from '../services/client-api.service';
 import { ClientEffects } from './client.effects';
-import { ClientFacade } from './client.facade';
 import { clientKey, clientReducer } from './client.reducer';
 
 @NgModule({
@@ -12,6 +11,6 @@ import { clientKey, clientReducer } from './client.reducer';
     StoreModule.forFeature(clientKey, clientReducer),
     EffectsModule.forFeature(ClientEffects),
   ],
-  providers: [ClientApiService, ClientFacade],
+  providers: [ClientApiService],
 })
 export class ClientStoreModule {}
