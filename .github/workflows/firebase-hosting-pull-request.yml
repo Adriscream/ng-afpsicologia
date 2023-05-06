@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm install -g pnpm
+      - run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_AFPSICOLOGIA }}'
+      - run: echo '${{ secrets.GITHUB_TOKEN }}'
+      - run: echo '${{ secrets.BASE_URL }}'
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm -F ui config:env
       - run: pnpm -F ui build
@@ -18,6 +21,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_AFPSICOLOGIA }}'
           projectId: ng-afpsicologia
+          publicRoot: 'ui/dist'
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           IMG_CDN_PUBLIC_KEY: ${{ secrets.IMG_CDN_PUBLIC_KEY }}
