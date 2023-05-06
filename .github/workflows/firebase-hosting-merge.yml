@@ -15,7 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm install -g pnpm
-        run: echo "${{ secrets.BASE_URL }}"
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm -F ui config:env
       - run: pnpm -F ui build
