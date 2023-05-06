@@ -14,9 +14,10 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v3
-        name: Install dependencies
       - run: npm install -g pnpm
+        name: Install pnpm
       - run: pnpm install --no-frozen-lockfile
+        name: Install dependencies
       - run: pnpm -F ui config:env
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
@@ -31,8 +32,11 @@ jobs:
           FIRESTORE_APP_ID: ${{ secrets.FIRESTORE_APP_ID }}
           FIRESTORE_MEASUREMENT_ID: ${{ secrets.FIRESTORE_MEASUREMENT_ID }}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+        name: Set env variables
       - run: pnpm -F ui build
+        name: Build UI
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        name: Deploy UI in firebase
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_AFPSICOLOGIA }}'
