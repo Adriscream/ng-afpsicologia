@@ -33,7 +33,7 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles/utils", "src/styles/globals"]
             },
-            // "allowedCommonJsDependencies": ["imagekitio-angular"],
+            "allowedCommonJsDependencies": ["imagekitio-angular"],
             "scripts": []
           },
           "configurations": {
