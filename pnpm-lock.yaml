@@ -335,9 +335,6 @@ importers:
       stylelint-order:
         specifier: ^6.0.3
         version: 6.0.3(stylelint@15.6.0)
-      ts-node:
-        specifier: ^10.0.0
-        version: 10.9.1(@types/node@18.15.11)(typescript@4.9.4)
       typescript:
         specifier: ~4.9.4
         version: 4.9.4
