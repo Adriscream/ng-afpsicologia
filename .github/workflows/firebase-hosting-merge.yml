@@ -19,7 +19,7 @@ jobs:
           node-version: 20
       - run: npm install -g pnpm
         name: Install pnpm
-      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm ci
         name: Install dependencies
       - run: pnpm -F ui config:env
         env:
