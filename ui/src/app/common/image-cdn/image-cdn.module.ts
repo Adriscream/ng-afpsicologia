@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IkImageComponent, ImagekitioAngularModule } from 'imagekitio-angular';
-import { environment } from 'src/environments/environment';
 
+import { environment } from '../../../environments/environment';
+console.log(environment);
 @NgModule({
   imports: [
     ImagekitioAngularModule.forRoot({
