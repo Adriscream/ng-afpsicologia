@@ -17,9 +17,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - run: npm install -g pnpm
+      - run: npm i -g pnpm
         name: Install pnpm
-      - run: pnpm ci --no-frozen-lockfile
+      - run: pnpm i --no-frozen-lockfile
         name: Install dependencies
       - run: pnpm -F ui config:env
         env:
