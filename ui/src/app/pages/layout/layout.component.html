@@ -59,12 +59,12 @@
             aria-label="Navigate to account section"
             mat-icon-button
           >
-            <ik-image
+            <af-image
               class="account-image"
               *ngIf="(userFacade.user$ | async)?.photoURL as photoUrl"
               aria-label="Toolbar nav account icon"
               [src]="photoUrl"
-            ></ik-image>
+            ></af-image>
 
             <mat-icon
               *ngIf="!(userFacade.user$ | async)?.photoURL"
