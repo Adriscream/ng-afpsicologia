@@ -1,16 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { IkImageComponent, ImagekitioAngularModule } from 'imagekitio-angular';
 
-import { environment } from '../../../environments/environment';
-console.log(environment);
+import { IkImageComponent } from './af-image.component';
+import { ImagekitService } from './image-cdn.service';
+
 @NgModule({
-  imports: [
-    ImagekitioAngularModule.forRoot({
-      publicKey: environment.imgCDNPublicKey,
-      urlEndpoint: environment.imgCDNUrlEndpoint,
-      authenticationEndpoint: environment.imgCDNAuthEndpoint,
-    }),
-  ],
+  declarations: [IkImageComponent],
+  imports: [CommonModule],
   exports: [IkImageComponent],
+  providers: [ImagekitService],
 })
 export class ImageCDNModule {}
