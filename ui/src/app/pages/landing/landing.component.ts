@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@app/common/auth/auth.service';
 
 @Component({
   selector: 'af-landing',
@@ -8,10 +7,9 @@ import { AuthService } from '@app/common/auth/auth.service';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private router: Router) {}
 
   async login() {
-    await this.authService.login();
     this.router.navigate(['/home']);
   }
 }
