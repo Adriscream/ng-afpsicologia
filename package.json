@@ -8,7 +8,7 @@
     "ui": "pnpm -F ui start",
     "api": "pnpm -F api start",
     "preinstall": "only-allow pnpm",
-    "prepare": "pnpx husky install",
+    "prepare": "husky install",
     "release": "standard-version --no-verify"
   },
   "private": true,
