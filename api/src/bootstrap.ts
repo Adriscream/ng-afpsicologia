@@ -5,8 +5,11 @@ import { VersioningType } from '@nestjs/common';
 
 export async function bootstrap() {
   logGlobalErrors();
-
-  const app = await NestFactory.create(AppModule, { cors: true });
+  debugger;
+  console.log(process.env.CLIENT_URL);
+  const app = await NestFactory.create(AppModule, {
+    cors: { origin: process.env.CLIENT_URL },
+  });
 
   app.enableVersioning({
     type: VersioningType.URI,
