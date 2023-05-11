@@ -1,7 +1,9 @@
 <mat-card *ngIf="professionalOffering">
   <mat-card-header class="card-header">
     <mat-icon mat-card-avatar>settings_accessibility</mat-icon>
-    <mat-card-title>{{ professionalOffering.name }}</mat-card-title>
+    <mat-card-title class="header-title">{{
+      professionalOffering.name
+    }}</mat-card-title>
     <div class="card-header-buttons">
       <button mat-button (click)="delete.next()">
         <mat-icon>delete</mat-icon>

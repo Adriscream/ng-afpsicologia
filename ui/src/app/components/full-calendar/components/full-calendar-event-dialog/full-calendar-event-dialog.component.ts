@@ -15,8 +15,8 @@ export class FullCalendarEventDialogComponent {
   eventForm = this.formBuilder.group({
     clientId: ['', Validators.required],
     serviceId: ['', Validators.required],
-    paymentMethod: ['', Validators.required],
-    status: ['', Validators.required],
+    paymentMethod: ['cash', Validators.required],
+    status: ['unpaid', Validators.required],
     end: [new Date(), Validators.required],
     start: [new Date(), Validators.required],
   });
@@ -33,7 +33,8 @@ export class FullCalendarEventDialogComponent {
     private dialogRef: MatDialogRef<FullCalendarEventDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: FullCalendarDialogProps
   ) {
-    this.eventForm.patchValue(this.data);
+    debugger;
+    this.eventForm.patchValue({ ...this.eventForm.value, ...this.data });
     this.clientOptions$ = this.clientFacade.clients$.pipe(
       map((clients) => {
         return clients.map(({ id = '', firstName }) => ({

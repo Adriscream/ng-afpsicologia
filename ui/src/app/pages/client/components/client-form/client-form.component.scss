@@ -1,3 +1,8 @@
+:host {
+  padding: 2rem;
+  display: block;
+}
+
 form {
   border-radius: 5px;
 
@@ -40,9 +45,10 @@ form {
       margin-top: 5px;
     }
   }
+}
 
-  .submit-button {
-    margin: 0.5rem;
-    width: 100%;
-  }
+.form__actions {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
 }

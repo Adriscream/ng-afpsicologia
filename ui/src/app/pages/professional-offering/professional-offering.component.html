@@ -1,4 +1,16 @@
 <div class="container">
-  <af-professional-offering-form></af-professional-offering-form>
+  <div class="fab-button">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Add client button"
+      color="primary"
+      type="button"
+      class="w-100"
+      (click)="openForm()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <af-professional-offering-list></af-professional-offering-list>
 </div>

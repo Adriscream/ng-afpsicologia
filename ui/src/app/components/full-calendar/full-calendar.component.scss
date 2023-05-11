@@ -1,3 +1,8 @@
-:host {
-  background-color: cadetblue;
+.fc-toolbar-chunk .fc-button-primary {
+  text-transform: capitalize;
+}
+
+.fc .fc-toolbar {
+  flex-flow: wrap-reverse;
+  gap: 1rem;
 }

@@ -1,126 +1,122 @@
-<h2 i18n="@@professional-offerings-information">Service Information</h2>
+<h2 mat-dialog-title i18n="@@professional-offerings-information">
+  Service Information
+</h2>
 
-<form [formGroup]="professionalOfferingForm" novalidate (ngSubmit)="onSubmit()">
-  <mat-card class="professional-offering-card">
-    <mat-card-content>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <mat-label>Name</mat-label>
-            <input
-              matInput
-              placeholder="Name"
-              formControlName="name"
-              i18n-placeholder="@@form-name-placeholder"
-            />
-            <mat-error
-              *ngIf="
-                professionalOfferingForm.controls['name'].hasError('required')
-              "
-              i18n="@@form-name-error"
-            >
-              Name is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+<form
+  mat-dialog-content
+  [formGroup]="professionalOfferingForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+>
+  <div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="Name"
+            formControlName="name"
+            i18n-placeholder="@@form-name-placeholder"
+          />
+          <mat-error
+            *ngIf="
+              professionalOfferingForm.controls['name'].hasError('required')
+            "
+            i18n="@@form-name-error"
+          >
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <mat-label>Description</mat-label>
-            <textarea
-              matInput
-              placeholder="Description"
-              i18n-placeholder="@@form-description-placeholder"
-              formControlName="description"
-            ></textarea>
-          </mat-form-field>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Description"
+            i18n-placeholder="@@form-description-placeholder"
+            formControlName="description"
+          ></textarea>
+        </mat-form-field>
       </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <mat-label>Price</mat-label>
-            <input
-              matInput
-              placeholder="Price"
-              formControlName="price"
-              i18n-placeholder="@@form-price-placeholder"
-            />
-            <mat-error
-              *ngIf="
-                professionalOfferingForm.controls['price'].hasError('required')
-              "
-              i18n="@@form-price-error"
-            >
-              Price is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field class="full-width">
-            <mat-label>Iva</mat-label>
-            <input
-              matInput
-              placeholder="Iva"
-              formControlName="iva"
-              i18n-placeholder="@@form-iva-placeholder"
-            />
-            <mat-error
-              *ngIf="
-                professionalOfferingForm.controls['iva'].hasError('required')
-              "
-              i18n-placeholder="@@form-phone-number-error"
-            >
-              Iva is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Price</mat-label>
+          <input
+            matInput
+            placeholder="Price"
+            formControlName="price"
+            i18n-placeholder="@@form-price-placeholder"
+          />
+          <mat-error
+            *ngIf="
+              professionalOfferingForm.controls['price'].hasError('required')
+            "
+            i18n="@@form-price-error"
+          >
+            Price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <mat-label>Duration</mat-label>
-            <input
-              matInput
-              placeholder="Duration"
-              formControlName="duration"
-              i18n-placeholder="@@form-duration-placeholder"
-            />
-            <mat-error
-              *ngIf="
-                professionalOfferingForm.controls['duration'].hasError(
-                  'required'
-                )
-              "
-              i18n-placeholder="@@form-phone-number-error"
-            >
-              Duration is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Iva</mat-label>
+          <input
+            matInput
+            placeholder="Iva"
+            formControlName="iva"
+            i18n-placeholder="@@form-iva-placeholder"
+          />
+          <mat-error
+            *ngIf="
+              professionalOfferingForm.controls['iva'].hasError('required')
+            "
+            i18n-placeholder="@@form-phone-number-error"
+          >
+            Iva is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        class="submit-button"
-      >
-        {{ buttonText }}
-      </button>
-      <button
-        *ngIf="professionalOffering"
-        mat-raised-button
-        color="primary"
-        type="button"
-        class="submit-button"
-        (click)="cancelEdit()"
-        i18n-placeholder="@@cancel"
-      >
-        Cancel
-      </button>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-label>Duration</mat-label>
+          <input
+            matInput
+            placeholder="Duration"
+            formControlName="duration"
+            i18n-placeholder="@@form-duration-placeholder"
+          />
+          <mat-error
+            *ngIf="
+              professionalOfferingForm.controls['duration'].hasError('required')
+            "
+            i18n-placeholder="@@form-phone-number-error"
+          >
+            Duration is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="form__actions" mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="warn"
+      type="button"
+      (click)="cancel()"
+      i18n-placeholder="@@cancel"
+    >
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ buttonText }}
+    </button>
+  </div>
 </form>

@@ -1,4 +1,16 @@
 <div class="container">
-  <af-client-form></af-client-form>
+  <div class="fab-button">
+    <button
+      mat-fab
+      color="primary"
+      aria-label="Add client button"
+      color="primary"
+      type="button"
+      class="w-100"
+      (click)="openForm()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <af-client-list></af-client-list>
 </div>
