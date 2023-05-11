@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Client } from '@lib/interfaces';
 import { ClientFacade } from '@pages/client/store/client.facade';
 import { Subscription } from 'rxjs';
@@ -32,7 +33,8 @@ export class ClientFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientFacade: ClientFacade
+    private clientFacade: ClientFacade,
+    private dialogRef: MatDialogRef<ClientFormComponent>
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +43,6 @@ export class ClientFormComponent implements OnInit, OnDestroy {
         this.client = client;
         if (client) {
           this.clientForm.patchValue(client as any);
-        } else {
-          this.clientForm.reset();
         }
       }
     );
@@ -57,10 +57,12 @@ export class ClientFormComponent implements OnInit, OnDestroy {
       const client = { ...this.client, ...this.clientForm.value } as Client;
       this.clientFacade.upsertClient(client);
       this.clientFacade.resetEditClient();
+      this.dialogRef.close(client);
     }
   }
 
-  cancelEdit() {
+  cancel() {
     this.clientFacade.resetEditClient();
+    this.dialogRef.close();
   }
 }

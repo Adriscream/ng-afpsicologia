@@ -9,6 +9,8 @@ import { ClientFacade } from '@pages/client/store/client.facade';
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
+import { ClientFormComponent } from '../client-form/client-form.component';
+
 @Component({
   selector: 'af-client-list',
   templateUrl: './client-list.component.html',
@@ -52,6 +54,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
 
   editClient(client: Client) {
     this.clientFacade.setEditClient(client);
+    this.dialog.open(ClientFormComponent);
   }
 
   deleteClient(id?: string) {

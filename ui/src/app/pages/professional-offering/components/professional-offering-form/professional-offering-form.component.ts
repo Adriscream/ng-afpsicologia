@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ProfessionalOffering } from '@lib/interfaces';
+import { ClientFormComponent } from '@pages/client/components/client-form/client-form.component';
 import { Subscription } from 'rxjs';
 
 import { ProfessionalOfferingFacade } from '../../store/professional-offering.facade';
@@ -29,7 +31,8 @@ export class ProfessionalOfferingFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private professionalOfferingFacade: ProfessionalOfferingFacade
+    private professionalOfferingFacade: ProfessionalOfferingFacade,
+    private dialogRef: MatDialogRef<ClientFormComponent>
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +44,6 @@ export class ProfessionalOfferingFormComponent implements OnInit, OnDestroy {
             this.professionalOfferingForm.patchValue(
               professionalOffering as any
             );
-          } else {
-            this.professionalOfferingForm.reset();
           }
         }
       );
@@ -62,10 +63,12 @@ export class ProfessionalOfferingFormComponent implements OnInit, OnDestroy {
         professionalOffering
       );
       this.professionalOfferingFacade.resetEditProfessionalOffering();
+      this.dialogRef.close(professionalOffering);
     }
   }
 
-  cancelEdit() {
+  cancel() {
     this.professionalOfferingFacade.resetEditProfessionalOffering();
+    this.dialogRef.close();
   }
 }

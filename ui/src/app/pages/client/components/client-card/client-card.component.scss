@@ -1,11 +1,15 @@
 .header-buttons {
   align-self: center;
-  text-align-last: end;
+  text-align: end;
   width: 100%;
 
   .mdc-button {
     min-width: fit-content;
   }
+}
+
+.header-title {
+  min-width: 200px;
 }
 
 .content {

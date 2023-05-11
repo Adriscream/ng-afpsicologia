@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {
   CalendarOptions,
@@ -21,6 +21,7 @@ import { FullCalendarMapper } from './services/full-calendar.mapper';
   selector: 'af-full-calendar',
   templateUrl: './full-calendar.component.html',
   styleUrls: ['./full-calendar.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FullCalendarComponent {
   calendarOptions: CalendarOptions = {

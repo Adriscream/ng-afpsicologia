@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { ProfessionalOfferingFacade } from '../../store/professional-offering.facade';
+import { ProfessionalOfferingFormComponent } from '../professional-offering-form/professional-offering-form.component';
 
 @Component({
   selector: 'af-professional-offering-list',
@@ -59,6 +60,7 @@ export class ProfessionalOfferingListComponent implements OnInit, OnDestroy {
     this.professionalOfferingFacade.setEditProfessionalOffering(
       professionalOffering
     );
+    this.dialog.open(ProfessionalOfferingFormComponent);
   }
 
   deleteProfessionalOffering(id?: string) {
