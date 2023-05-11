@@ -18,6 +18,14 @@
         <mat-icon>phone</mat-icon>
       </a>
 
+      <a
+        *ngIf="client.phoneNumber"
+        mat-button
+        href="https://wa.me/{{ client.phoneNumber }}"
+      >
+        <mat-icon>chat</mat-icon>
+      </a>
+
       <button mat-button (click)="delete.next()">
         <mat-icon>delete</mat-icon>
       </button>
