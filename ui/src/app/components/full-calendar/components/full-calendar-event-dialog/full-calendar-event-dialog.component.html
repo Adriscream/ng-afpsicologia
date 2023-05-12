@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>
   <span>Add Event data</span>
 </h2>
-<div mat-dialog-content class="row">
+<div mat-dialog-content>
   <form [formGroup]="eventForm" novalidate (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
@@ -40,6 +40,7 @@
               [value]="option.value"
             >
               {{ option.label }}
+              <span class="text-align-end">({{ option.duration }}min)</span>
             </mat-option>
           </mat-select>
           <mat-error
@@ -97,6 +98,36 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <div class="col">
+        <mat-form-field
+          class="full-width"
+          appearance="outline"
+          floatLabel="auto"
+        >
+          <mat-label>From Date</mat-label>
+          <input
+            type="datetime-local"
+            matInput
+            name="fromTime"
+            formControlName="start"
+          />
+        </mat-form-field>
+      </div>
+      <!-- <div class="col">
+        <mat-form-field
+          class="full-width"
+          appearance="outline"
+          floatLabel="auto"
+        >
+          <mat-label>To Date</mat-label>
+          <input
+            type="datetime-local"
+            matInput
+            name="toTime"
+            formControlName="end"
+          />
+        </mat-form-field>
+      </div> -->
       <!-- TODO dates -->
       <!-- <div class="col">
         <mat-form-field class="full-width">
@@ -128,7 +159,7 @@
 
 <button
   class="delete-button"
-  *ngIf="data.canDelete"
+  *ngIf="props?.canDelete"
   mat-icon-button
   aria-label="Delete button"
   tabindex="0"

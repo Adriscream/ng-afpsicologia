@@ -11,7 +11,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { CalendarEventFacade } from '@pages/calendar/store/calendar.facade';
-import { map, take } from 'rxjs';
+import { first, map } from 'rxjs';
 
 import { FullCalendarEventDialogComponent } from './components/full-calendar-event-dialog/full-calendar-event-dialog.component';
 import { INITIAL_EVENTS } from './event-utils';
@@ -57,23 +57,27 @@ export class FullCalendarComponent {
     public calendarEventFacade: CalendarEventFacade
   ) {}
 
-  handleDateSelect(selectInfo: DateSelectArg) {
-    const dialogRef = this.dialog.open(FullCalendarEventDialogComponent, {
-      data: { end: selectInfo.end, start: selectInfo.start },
-    });
+  openForm() {
+    const dialogRef = this.dialog.open(FullCalendarEventDialogComponent);
 
     dialogRef
       .afterClosed()
-      .pipe(take(1))
-      .subscribe(({ title, clientId, serviceId, paymentMethod, status }) => {
-        const calendarApi = selectInfo.view.calendar;
-
-        if (clientId) {
-          const event = calendarApi.addEvent(selectInfo);
-          if (event) {
+      .pipe(first())
+      .subscribe(
+        ({
+          title,
+          clientId,
+          serviceId,
+          paymentMethod,
+          status,
+          end: endStr,
+          start: startStr,
+        }) => {
+          if (endStr && startStr) {
             this.calendarEventFacade.upsertCalendarEvent(
               this.fullCalendarMapper.toServer({
-                ...selectInfo,
+                endStr,
+                startStr,
                 title,
                 extendedProps: {
                   clientId,
@@ -85,8 +89,50 @@ export class FullCalendarComponent {
             );
           }
         }
-        calendarApi.unselect();
-      });
+      );
+  }
+  handleDateSelect(selectInfo: DateSelectArg) {
+    const dialogRef = this.dialog.open(FullCalendarEventDialogComponent, {
+      data: { end: selectInfo.end, start: selectInfo.start },
+    });
+
+    dialogRef
+      .afterClosed()
+      .pipe(first())
+      .subscribe(
+        ({
+          title,
+          clientId,
+          serviceId,
+          paymentMethod,
+          status,
+          end: endStr,
+          start: startStr,
+        }) => {
+          const calendarApi = selectInfo.view.calendar;
+
+          if (clientId) {
+            const event = calendarApi.addEvent(selectInfo);
+            if (event) {
+              this.calendarEventFacade.upsertCalendarEvent(
+                this.fullCalendarMapper.toServer({
+                  ...selectInfo,
+                  endStr,
+                  startStr,
+                  title,
+                  extendedProps: {
+                    clientId,
+                    serviceId,
+                    paymentMethod,
+                    status,
+                  },
+                } as any)
+              );
+            }
+          }
+          calendarApi.unselect();
+        }
+      );
   }
 
   handleEventClick(clickInfo: EventClickArg) {
@@ -101,11 +147,18 @@ export class FullCalendarComponent {
 
     dialogRef
       .afterClosed()
-      .pipe(take(1))
+      .pipe(first())
       .subscribe(
-        ({ title, clientId, serviceId, paymentMethod, status, canDelete }) => {
-          debugger;
-
+        ({
+          title,
+          clientId,
+          serviceId,
+          paymentMethod,
+          status,
+          canDelete,
+          end: endStr,
+          start: startStr,
+        }) => {
           if (canDelete) {
             this.calendarEventFacade.deleteCalendarEvent(clickInfo.event.id);
             clickInfo.event.remove();
@@ -113,6 +166,8 @@ export class FullCalendarComponent {
             this.calendarEventFacade.upsertCalendarEvent(
               this.fullCalendarMapper.toServer({
                 ...clickInfo.event.toJSON(),
+                endStr,
+                startStr,
                 title,
                 extendedProps: { clientId, serviceId, paymentMethod, status },
               } as any)
