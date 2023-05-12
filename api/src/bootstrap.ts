@@ -5,8 +5,7 @@ import { VersioningType } from '@nestjs/common';
 
 export async function bootstrap() {
   logGlobalErrors();
-  debugger;
-  console.log(process.env.CLIENT_URL);
+
   const app = await NestFactory.create(AppModule, {
     cors: { origin: process.env.CLIENT_URL },
   });

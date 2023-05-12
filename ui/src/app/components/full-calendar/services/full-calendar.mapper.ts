@@ -48,7 +48,6 @@ export class FullCalendarMapper {
       status,
     },
   }: EventApi): CalendarEvent {
-    debugger;
     return {
       id,
       start: startStr ?? start,
