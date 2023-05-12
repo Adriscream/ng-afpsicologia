@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
@@ -28,6 +29,7 @@ import { LayoutComponent } from './layout.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatMenuModule,
     UserModule,
     ImageCDNModule,
     ClientStoreModule,

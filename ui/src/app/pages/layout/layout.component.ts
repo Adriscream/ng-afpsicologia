@@ -22,6 +22,8 @@ export class LayoutComponent implements OnInit {
       shareReplay()
     );
 
+  today = new Date();
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     public userFacade: UserFacade,
