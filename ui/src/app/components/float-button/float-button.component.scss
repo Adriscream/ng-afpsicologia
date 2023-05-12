@@ -6,4 +6,12 @@
   right: 2rem;
   width: 56px;
   z-index: 1;
+
+  .float-button {
+    width: 100%;
+
+    &:hover {
+      animation-name: pulse;
+    }
+  }
 }

@@ -50,7 +50,7 @@
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    animation-name: rubberBand;
+    animation-name: pulse;
     background-color: #3f51b5;
   }
 }
