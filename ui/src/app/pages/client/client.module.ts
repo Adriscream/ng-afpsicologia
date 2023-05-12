@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogModule } from '@components/confirm-dialog/confirm-dialog.module';
+import { FloatButtonModule } from '@components/float-button/float-button.module';
 
 import { ClientComponent } from './client.component';
 import { ClientCardComponent } from './components/client-card/client-card.component';
@@ -44,6 +45,7 @@ import { ClientListComponent } from './components/client-list/client-list.compon
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
+    FloatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
   ],

@@ -13,6 +13,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogModule } from '@components/confirm-dialog/confirm-dialog.module';
+import { FloatButtonModule } from '@components/float-button/float-button.module';
 
 import { ProfessionalOfferingCardComponent } from './components/professional-offering-card/professional-offering-card.component';
 import { ProfessionalOfferingFormComponent } from './components/professional-offering-form/professional-offering-form.component';
@@ -46,6 +47,7 @@ import { ProfessionalOfferingComponent } from './professional-offering.component
     MatNativeDateModule,
     DragDropModule,
     ConfirmDialogModule,
+    FloatButtonModule,
   ],
 })
 export class ProfessionalOfferingModule {}

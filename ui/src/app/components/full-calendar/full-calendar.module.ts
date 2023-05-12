@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ConfirmDialogModule } from '@components/confirm-dialog/confirm-dialog.module';
+import { FloatButtonModule } from '@components/float-button/float-button.module';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { FullCalendarEventDialogComponent } from './components/full-calendar-event-dialog/full-calendar-event-dialog.component';
@@ -31,6 +32,7 @@ import { FullCalendarMapper } from './services/full-calendar.mapper';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    FloatButtonModule,
   ],
   exports: [FullCalendarComponent, FullCalendarEventDialogComponent],
   providers: [FullCalendarMapper],

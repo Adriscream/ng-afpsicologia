@@ -6,7 +6,7 @@ import { getSearchObservable } from '@app/common/search/search.utils';
 import { ConfirmDialogComponent } from '@components/confirm-dialog/confirm-dialog.component';
 import { ProfessionalOffering } from '@lib/interfaces';
 import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 
 import { ProfessionalOfferingFacade } from '../../store/professional-offering.facade';
 import { ProfessionalOfferingFormComponent } from '../professional-offering-form/professional-offering-form.component';
@@ -68,7 +68,7 @@ export class ProfessionalOfferingListComponent implements OnInit, OnDestroy {
 
     dialogRef
       .afterClosed()
-      .pipe(take(1))
+      .pipe(first())
       .subscribe((result) => {
         if (result) {
           this.professionalOfferingFacade.deleteProfessionalOffering(id);

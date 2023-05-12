@@ -7,7 +7,7 @@ import { ConfirmDialogComponent } from '@components/confirm-dialog/confirm-dialo
 import { Client } from '@lib/interfaces';
 import { ClientFacade } from '@pages/client/store/client.facade';
 import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 
 import { ClientFormComponent } from '../client-form/client-form.component';
 
@@ -62,7 +62,7 @@ export class ClientListComponent implements OnInit, OnDestroy {
 
     dialogRef
       .afterClosed()
-      .pipe(take(1))
+      .pipe(first())
       .subscribe((result) => {
         if (result) {
           this.clientFacade.deleteClient(id);
