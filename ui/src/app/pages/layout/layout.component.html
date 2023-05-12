@@ -53,11 +53,11 @@
       <div class="toolbar-lg">
         <span i18n="@@title">AF Scheduler</span>
         <div class="account">
-          <b>{{ (userFacade.user$ | async)?.firstName }}</b>
           <button
             type="button"
             aria-label="Navigate to account section"
             mat-icon-button
+            [matMenuTriggerFor]="menu"
           >
             <af-image
               class="account-image"
@@ -72,6 +72,13 @@
               >account_circle</mat-icon
             >
           </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <b>{{ (userFacade.user$ | async)?.firstName }}</b>
+            </button>
+            <button mat-menu-item>{{ today | date }}</button>
+            <button mat-menu-item><mat-icon>settings</mat-icon></button>
+          </mat-menu>
         </div>
       </div>
     </mat-toolbar>
